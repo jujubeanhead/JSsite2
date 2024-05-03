@@ -26,7 +26,7 @@
 
 <div id="ticketApp">
 
-     <h2>Tickets July 4, 2014, Minneapolis/St. Paul</h2>
+     <h2>Tickets July 4, 2014, Minneapolis/St. Paul, 25 mph Over the Speed Limit</h2>
 
           <table class="table table-bordered table-striped">
               <tr>
@@ -62,7 +62,7 @@
                 async getData() {
                     const response = await fetch('tickets1.json')
                     this.tickets = await response.json()
-                    this.tickets = this.return.filter((ticket.actual_speed - ticket.posted_speed) >= 25)
+                    Vue.filter((ticket.actual_speed - ticket.posted_speed) >= 25);
                     //tickets = data.filter( (item) => item.major == majSelect );
                 },
             }
