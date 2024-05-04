@@ -61,7 +61,7 @@
 
             computed: {
                 filteredTickets() {
-                    return this.tickets.filter(ticket => ticket.actual_speed > ticket.posted_speed);
+                    return this.tickets.filter(ticket => ticket.actual_speed - ticket.posted_speed >= 25);
                   }
               },
 
