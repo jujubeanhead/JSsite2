@@ -60,12 +60,12 @@
             },
 
             computed: {
-             filteredTickets() {
-                 console.log('Tickets:', this.tickets);
-                 const filtered = this.tickets.filter(ticket => ticket.actual_speed - ticket.posted_speed >= 25);
-                 console.log('Filtered Tickets:', filtered);
-                 return filtered;
-             }
+              filteredTickets() {
+                console.log('Tickets:', this.tickets);
+                // Remove filtering condition for testing
+                return this.tickets;
+            }
+        },
          },
          methods: {
              async getData() {
