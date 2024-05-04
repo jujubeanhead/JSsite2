@@ -60,19 +60,25 @@
             },
 
             computed: {
-                filteredTickets() {
-                    return this.tickets.filter(ticket => ticket.actual_speed - ticket.posted_speed >= 25);
-                  }
-              },
-
-            methods: {    // ajax request
-                async getData() {
-                    const response = await fetch('tickets1.json')
-                    this.tickets = await response.json()
-                    //tickets = data.filter( (item) => item.major == majSelect );
-                },
-            }
-          })
+             filteredTickets() {
+                 console.log('Tickets:', this.tickets);
+                 const filtered = this.tickets.filter(ticket => ticket.actual_speed - ticket.posted_speed >= 25);
+                 console.log('Filtered Tickets:', filtered);
+                 return filtered;
+             }
+         },
+         methods: {
+             async getData() {
+                 try {
+                     const response = await fetch('tickets1.json');
+                     this.tickets = await response.json();
+                     console.log('Data Loaded:', this.tickets);
+                 } catch (error) {
+                     console.error('Error loading data:', error);
+                 }
+             },
+         }
+     });
 
       app.mount('#ticketApp')   //in which div to mount the vue app
 
